@@ -1,6 +1,6 @@
-id=android_firewall
-name=android firewall
-version=v1.17
-versionCode=17
-author=@coolapk 10086
-description=android firewall
+id=Android_Firewall
+name=Android Firewall
+version=v1.0
+versionCode=1
+author=@lrxc
+description=防火墙,可以拦截系统软件流量,比如云控
