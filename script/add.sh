@@ -49,10 +49,10 @@ function addChain(){
 
 function addRule(){
     echo 'ipv4 add' [$table] 'uid: '$uid
-    iptables -I symbol_app_chain -m owner --uid-owner $uid -j DROP
+    iptables -I symbol_app_chain -m owner --uid-owner $uid -j REJECT
 
     echo 'ipv6 add' [$table] 'uid: '$uid
-    ip6tables -I symbol_app_chain_v6 -m owner --uid-owner $uid -j DROP
+    ip6tables -I symbol_app_chain_v6 -m owner --uid-owner $uid -j REJECT
 }
 
 function main(){
