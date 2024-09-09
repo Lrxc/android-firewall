@@ -9,6 +9,7 @@ MODDIR=$(dirname $(cd $(dirname $0); pwd))
 function clean(){
     echo 'clean...'
     iptables -F symbol_app_chain
+    ip6tables -F symbol_app_chain_v6
     echo 'clean...ok'
 }
 

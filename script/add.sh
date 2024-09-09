@@ -34,11 +34,25 @@ function addChain(){
     else
         echo "custom chain is linked"
     fi
+
+    #create custom chain
+    ip6tables -N symbol_app_chain_v6
+    #check exist
+    ip6tables -C OUTPUT -j symbol_app_chain_v6
+    if [ $? -eq 1 ]; then
+        #link custom chain
+        ip6tables -I OUTPUT -j symbol_app_chain_v6
+    else
+        echo "custom chain v6 is linked"
+    fi
 }
 
 function addRule(){
-    echo 'add' [$table] 'uid: '$uid
+    echo 'ipv4 add' [$table] 'uid: '$uid
     iptables -I symbol_app_chain -m owner --uid-owner $uid -j DROP
+
+    echo 'ipv6 add' [$table] 'uid: '$uid
+    ip6tables -I symbol_app_chain_v6 -m owner --uid-owner $uid -j DROP
 }
 
 function main(){

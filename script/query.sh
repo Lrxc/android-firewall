@@ -2,8 +2,11 @@
 
 function query(){
     # list=`iptables -nL | grep $uid`
-    list=`iptables -nL symbol_app_chain`
-    echo 'list:' "$list"
+    ipv4=`iptables -nL symbol_app_chain`
+    echo -e "ipv4:----------------\n $ipv4"
+
+    ipv6=`ip6tables -nL symbol_app_chain_v6`
+    echo -e "ipv6:----------------\n $ipv6"
 }
 
 function checkRoot(){
