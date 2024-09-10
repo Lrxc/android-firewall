@@ -12,4 +12,4 @@ MODDIR=${0%/*}
 sleep 5
 
 chmod -R 777 $MODDIR/script
-$MODDIR/script/add.sh >$MODDIR/debug.log
+$MODDIR/script/add.sh >$MODDIR/srcipt/start.log

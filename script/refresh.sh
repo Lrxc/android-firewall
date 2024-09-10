@@ -3,8 +3,8 @@
 #script relative path
 # MODDIR=${0%/*}
 
-#script absolute path of grandparent
-MODDIR=$(dirname $(cd $(dirname $0); pwd))
+#script absolute parent path
+MODDIR=$(cd $(dirname $0); pwd)
 
 function clean(){
     echo 'clean...'
@@ -18,10 +18,10 @@ function main(){
     clean
 
     echo 'start...'
-    $MODDIR/script/add.sh >$MODDIR/debug.log
+    $MODDIR/add.sh >$MODDIR/start.log
     echo 'start...ok'
 
-    echo 'start log:' $MODDIR/debug.log
+    echo 'start log:' $MODDIR/start.log
 }
 
 main
