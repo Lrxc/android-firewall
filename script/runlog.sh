@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function query(){
-    dmesg -Tw | grep "iptables log:"
+    dmesg -Tw | grep "AAFW LOG:"
 }
 
 function checkRoot(){
