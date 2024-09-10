@@ -26,10 +26,10 @@ Magisk模块,可以拦截用户软件及系统软件,内部基于iptables对app�
    sh /data/adb/modules/android_firewall/script/refresh.sh
    ```
 
-4. 查看运行日志
+4. 查看日志
 
    ```shell
-   cat /data/adb/modules/android_firewall/debug.log
+   /data/adb/modules/android_firewall/query.sh
    ```
 
    
