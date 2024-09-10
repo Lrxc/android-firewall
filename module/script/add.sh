@@ -3,7 +3,7 @@ MODDIR=${0%/*}
 
 function getApps(){
     #appNames=("mark.via" "com.joyose")
-    appNames=$(cat $MODDIR/conf.json | grep -v [][#] | sed 's/[," \r\n]//g')
+    appNames=$(cat $MODDIR/conf.json | grep -v [][#//] | sed 's/[," \r\n]//g')
     #appNames=$(cat $MODDIR/conf.json | sed 's/[][," \r\n]//g')
     echo 'apps:' $appNames
 }

@@ -30,9 +30,9 @@ function checkRoot(){
 }
 
 function handler(){
-    echo "please input option(1=拦截规则,2=拦截数量,3=拦截实时查看,0=退出):"
+    echo "请输入参数(1=拦截规则,2=拦截数量,3=拦截实时查看,0=退出):"
     read input
-    echo 'input:'$input
+    #echo 'input:'$input
 
     case "$input" in
         1)
@@ -48,7 +48,7 @@ function handler(){
             exit 0
             ;;
         *)
-            echo "invalid input. please enter 1,2,3 or 0"
+            echo "参数不合法,请输入 1,2,3 或 0"
             ;;
     esac
 

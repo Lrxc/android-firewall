@@ -8,7 +8,7 @@ MODDIR=${0%/*}
 
 # This script will be executed in late_start service mode
 
-#wait for android env
+#wait for android env(eg: pm list)
 #sleep 5
 
 chmod -R 777 $MODDIR/script
