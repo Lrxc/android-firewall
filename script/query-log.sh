@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function query(){
-    dmesg -Tw | grep "AAFW LOG:"
+    dmesg -Tw | grep "AFLOG="
 }
 
 function checkRoot(){
