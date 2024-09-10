@@ -10,7 +10,7 @@ function getApps(){
 
 function getUid(){
     echo 'packag name:' $1
-    #adb shell dumpsys package $1 | grep userId=
+    # uid=`dumpsys package $1 | grep userId= | awk -F 'userId=' '{print $2}'`
     uid=`pm list packages -U | grep $1 | awk -F 'uid:' '{print $2}'`
     echo 'uid:'$uid
 }
@@ -47,6 +47,12 @@ function addChain(){
     fi
 }
 
+function addLog(){
+    # iptables -I symbol_app_chain -m owner --uid-owner $uid -j LOG --log-prefix "iptables log:"
+    iptables -I symbol_app_chain -j LOG --log-prefix "iptables log:"
+    ip6tables -I symbol_app_chain_v6 -j LOG --log-prefix "iptables log:"
+}
+
 function addRule(){
     echo 'ipv4 add' [$table] 'uid: '$uid
     iptables -I symbol_app_chain -m owner --uid-owner $uid -j REJECT
@@ -61,6 +67,7 @@ function main(){
 
     getApps
     addChain
+    addLog
 
     for table in ${appNames[@]};do
         echo --------------------------------------
