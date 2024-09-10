@@ -36,12 +36,12 @@ function addChain(){
     fi
 
     #create custom chain
-    ip6tables -N symbol_app_chain_v6
+    ip6tables -N symbol_app_chain
     #check exist
-    ip6tables -C OUTPUT -j symbol_app_chain_v6
+    ip6tables -C OUTPUT -j symbol_app_chain
     if [ $? -eq 1 ]; then
         #link custom chain
-        ip6tables -I OUTPUT -j symbol_app_chain_v6
+        ip6tables -I OUTPUT -j symbol_app_chain
     else
         echo "custom chain v6 is linked"
     fi
@@ -50,7 +50,7 @@ function addChain(){
 function addLog(){
     # iptables -I symbol_app_chain -m owner --uid-owner $uid -j LOG --log-prefix "AFW LOG:"
     iptables -I symbol_app_chain -j LOG --log-prefix "AAFW LOG:"
-    ip6tables -I symbol_app_chain_v6 -j LOG --log-prefix "AAFW LOG:"
+    ip6tables -I symbol_app_chain -j LOG --log-prefix "AAFW LOG:"
 }
 
 function addRule(){
@@ -58,7 +58,7 @@ function addRule(){
     iptables -A symbol_app_chain -m owner --uid-owner $uid -j REJECT
 
     echo 'ipv6 add' [$table] 'uid: '$uid
-    ip6tables -A symbol_app_chain_v6 -m owner --uid-owner $uid -j REJECT
+    ip6tables -A symbol_app_chain -m owner --uid-owner $uid -j REJECT
 }
 
 function main(){

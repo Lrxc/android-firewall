@@ -39,12 +39,8 @@ Magisk模块,可以拦截用户软件及系统软件,内部基于iptables对app�
 ```
 META-INF: 模块必须依赖
 srcipt: 自定义脚本
-system: 
 
-customize.sh: magisk安装自定义信息
 module.prop: 模块信息
-post-fs-data.sh: 
 service.sh: 启动后执行
-system.prop
 ```
 

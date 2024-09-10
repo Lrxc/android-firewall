@@ -5,7 +5,7 @@ function query(){
     ipv4=`iptables -nL symbol_app_chain`
     echo -e "ipv4:----------------\n $ipv4"
 
-    ipv6=`ip6tables -nL symbol_app_chain_v6`
+    ipv6=`ip6tables -nL symbol_app_chain`
     echo -e "ipv6:----------------\n $ipv6"
 }
 
