@@ -39,12 +39,14 @@ function addChain(){
 
 function addRule(){
     echo 'ipv4 add' [$table] 'uid: '$uid
-    #add log record
-    iptables -A symbol_app_chain -m owner --uid-owner $uid -j LOG --log-prefix "AFLOG=[$table]: " --log-level 6
+    #some android device not support LOG module
+    # iptables -A symbol_app_chain -m owner --uid-owner $uid -j LOG --log-prefix "AFLOG=[$table]: " --log-level 6
+    # iptables -A symbol_app_chain -m owner --uid-owner $uid -j NFLOG --nflog-group 65533 --nflog-prefix AFLOG=[$table]:
     iptables -A symbol_app_chain -m owner --uid-owner $uid -j REJECT
 
     echo 'ipv6 add' [$table] 'uid: '$uid
-    ip6tables -A symbol_app_chain -m owner --uid-owner $uid -j LOG --log-prefix "AFLOG=[$table]: " --log-level 6
+    # ip6tables -A symbol_app_chain -m owner --uid-owner $uid -j LOG --log-prefix "AFLOG=[$table]: " --log-level 6
+    # iptables -A symbol_app_chain -m owner --uid-owner $uid -j NFLOG --nflog-group 65533 --nflog-prefix AFLOG=[$table]: 
     ip6tables -A symbol_app_chain -m owner --uid-owner $uid -j REJECT
 }
 
